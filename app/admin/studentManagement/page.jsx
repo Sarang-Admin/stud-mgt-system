@@ -4,8 +4,14 @@ import Search from "@/app/ui/dashboard/serach/search";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
+import { fetchStudents } from "@/app/lib/data";
+import { deleteStudent } from "@/app/lib/studentActions";
 
-const StudentManagement = () => {
+const StudentManagement = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { count, students } = await fetchStudents(q, page);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -18,49 +24,54 @@ const StudentManagement = () => {
         <thead>
           <tr>
             <td>Name</td>
+            <td>Student ID</td>
             <td>Phone Number</td>
-            <td>Created At</td>
-            <td>Role</td>
-            <td>Status</td>
+            <td>Standard</td>
+            <td>Hostel</td>
+            <td>Room Number</td>
             <td>Action</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/images/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                Sanjay Vyas
-              </div>
-            </td>
-            <td>+91-9875445635</td>
-            <td>13.01.2022</td>
-            <td>Admin</td>
-            <td>Active</td>
-            <td>
-              <div className={styles.buttons}>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.view}`}>
-                    View
-                  </button>
-                </Link>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.delete}`}>
-                    Delete
-                  </button>
-                </Link>
-              </div>
-            </td>
-          </tr>
+          {students.map((item) => (
+            <tr key={item.id}>
+              <td>
+                <div className={styles.user}>
+                  <Image
+                    src={item.img || "/images/noavatar.png"}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  {item.lastname + " " + item.firstname}
+                </div>
+              </td>
+              <td>{item.studentID}</td>
+              <td>{item.contact}</td>
+              <td>{item.standard}</td>
+              <td>{item.hostel}</td>
+              <td>{item.hostelRoom}</td>
+              <td>
+                <div className={styles.buttons}>
+                  <Link href={`/admin/studentManagement/${item.id}`}>
+                    <button className={`${styles.button} ${styles.view}`}>
+                      View
+                    </button>
+                  </Link>
+                  <form action={deleteStudent}>
+                    <input type="hidden" name="id" value={item.id} />
+                    <button className={`${styles.button} ${styles.delete}`}>
+                      Delete
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 };
