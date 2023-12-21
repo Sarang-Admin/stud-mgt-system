@@ -3,9 +3,7 @@ import styles from "../studentProfile.module.css";
 import Image from "next/image";
 import { fetchStudent } from "@/app/lib/data";
 import { updateStudent } from "@/app/lib/studentActions";
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 const StudentProfilePage = async ({ params }) => {
   const { id } = params;
@@ -19,6 +17,11 @@ const StudentProfilePage = async ({ params }) => {
         <div className="mt-5 text-3xl ml-5">
           {student.firstname} {student.lastname}
         </div>
+        <Link href={`/admin/studentManagement/icardManage/${student.id}`}>
+          <button className={`${styles.button} ${styles.view}`}>
+            View Icard
+          </button>
+        </Link>
       </div>
       <div className={styles.formContainer}>
         <form action={updateStudent} className={styles.form}>
