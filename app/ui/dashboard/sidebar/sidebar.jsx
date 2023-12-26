@@ -41,7 +41,7 @@ const menuItems = [
       },
       {
         title: "Consumer Store",
-        path: "/admin/consumerStore/addProducts",
+        path: "/admin/consumerStore",
         icon: <MdShoppingBag />,
       },
     ],
