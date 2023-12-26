@@ -1,5 +1,6 @@
 import { Teachers } from "../models/teacher_model";
 import { Students } from "../models/student_model";
+import { Store } from "../models/store_model";
 import { dbConnect } from "./utils";
 
 export const fetchTeachers = async (q, page) => {
@@ -57,5 +58,36 @@ export const fetchStudent = async (id) => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fatch Student");
+  }
+};
+
+export const fetchProducts = async (q, page) => {
+  const regex = new RegExp(q, "i");
+
+  const ITEM_PER_PAGE = 10;
+
+  try {
+    dbConnect();
+    const count = await Store.find({
+      serialNo: { $regex: regex },
+    }).count();
+    const products = await Store.find({ serialNo: { $regex: regex } })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+    return { count, products };
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fatch Products");
+  }
+};
+
+export const fetchProduct = async (id) => {
+  try {
+    dbConnect();
+    const product = await Store.findById(id);
+    return product;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fatch Product");
   }
 };
