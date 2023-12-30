@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { fetchStudent } from "@/app/lib/data";
-import { updateStudent } from "@/app/lib/studentActions";
+import { fetchStudent } from "../../../../lib/data";
 import styles from "./icard.module.css";
 
 export default async function StudentIcard({ params }) {

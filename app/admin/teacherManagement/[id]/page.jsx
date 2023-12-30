@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../teacherProfile.module.css";
 import Image from "next/image";
-import { fetchTeacher } from "@/app/lib/data";
-import { updateTeacher } from "@/app/lib/actions";
+import { fetchTeacher } from "../../../lib/data";
+import { updateTeacher } from "../../../lib/actions";
 
 const TeacherProfilePage = async ({ params }) => {
   const { id } = params;
