@@ -3,7 +3,7 @@ import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import styles from "./addTeacher.module.css";
-import { addTeacher } from "@/app/lib/actions";
+import { addTeacher } from "../../../lib/actions";
 
 const AddTeacherPage = () => {
   return (
