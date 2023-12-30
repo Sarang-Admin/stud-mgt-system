@@ -1,27 +1,48 @@
-import Card from "@/app/ui/dashboard/card/card";
-import React from "react";
-import styles from "../../ui/dashboard/dashboard.module.css";
-import Rightbar from "@/app/ui/dashboard/rightbar/rightbar";
-import Transactions from "@/app/ui/dashboard/transactions/transactions";
-import Chart from "@/app/ui/dashboard/chart/chart";
+import "./dashboard.scss";
+import TopBox from "../components/dashboard/topbox/TopBox";
+import Chartbox from "../components/dashboard/chartbox/Chartbox";
+import BarchartBox from "../components/dashboard/barchartbox/BarchartBox";
+import PieChartBox from "../components/dashboard/piechartbox/PieChartBox";
+import BigChartBox from "../components/dashboard/bigchartbox/BigChartBox";
+import {
+  chartBoxUser,
+  chartBoxTeacher,
+  chartBoxStudent,
+  chartBoxSubject,
+  barChartBoxResult,
+  barChartFeesCollected,
+} from "../data";
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.main}>
-        <div className={styles.cards}>
-          <Card />
-          <Card />
-          <Card />
-        </div>
-        <Transactions />
-        <Chart />
+    <div className="home">
+      <div className="box box1">
+        <TopBox />
       </div>
-      <div className={styles.side}>
-        <Rightbar />
+      <div className="box box2">
+        <Chartbox {...chartBoxUser} />
+      </div>
+      <div className="box box3">
+        <Chartbox {...chartBoxTeacher} />
+      </div>
+      <div className="box box4">
+        <PieChartBox />
+      </div>
+      <div className="box box5">
+        <Chartbox {...chartBoxStudent} />
+      </div>
+      <div className="box box6">
+        <Chartbox {...chartBoxSubject} />
+      </div>
+      <div className="box box7">
+        <BigChartBox />
+      </div>
+      <div className="box box8">
+        <BarchartBox {...barChartBoxResult} />
+      </div>
+      <div className="box box9">
+        <BarchartBox {...barChartFeesCollected} />
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}

@@ -1,0 +1,46 @@
+.topbox {
+    h1 {
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .list {
+
+        .listItem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+
+            .user {
+                display: flex;
+                gap: 20px;
+
+                .studImg {
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .userTexts {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .username {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .standard {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .percent {
+                font-weight: 500;
+            }
+        }
+    }
+}

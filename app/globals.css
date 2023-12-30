@@ -7,6 +7,13 @@
   --bgSoft: #182237;
   --text: white;
   --textSoft: #b7bac1;
+  --primary-clr: #f77c5a;
+  --bg-primary: #1f1d2a;
+  --bg-secondary: #252935;
+  --bg-ternary: #35333f;
+  --heading-clr: #efefef;
+  --text-clr: #808191;
+  --gradient: linear-gradient(to right, #35333f, transperent);
 }
 
 * {
