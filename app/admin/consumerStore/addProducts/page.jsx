@@ -1,5 +1,5 @@
 import styles from "./addProducts.module.css";
-import { addProducts } from "@/app/lib/storeActions";
+import { addProducts } from "../../../lib/storeActions";
 
 export default function AddProducts() {
   return (

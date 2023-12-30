@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "@/app/ui/dashboard/teachers/teachers.module.css";
-import Search from "@/app/ui/dashboard/serach/search";
+import styles from "../../ui/dashboard/teachers/teachers.module.css";
+import Search from "../../ui/dashboard/serach/search";
 import Link from "next/link";
 import Image from "next/image";
-import Pagination from "@/app/ui/dashboard/pagination/pagination";
-import { fetchProducts } from "@/app/lib/data";
-import { deleteProduct } from "@/app/lib/storeActions";
+import Pagination from "../../ui/dashboard/pagination/pagination";
+import { fetchProducts } from "../../lib/data";
+import { deleteProduct } from "../../lib/storeActions";
 
 export default async function ConsumerStore({ searchParams }) {
   const q = searchParams?.q || "";
