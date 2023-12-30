@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "@/app/ui/dashboard/students/addStudent.module.css";
+import styles from "../../../ui/dashboard/students/addStudent.module.css";
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
-import { addStudent } from "@/app/lib/studentActions";
+import { addStudent } from "../../../lib/studentActions";
 
 const AddStudentPage = () => {
   return (

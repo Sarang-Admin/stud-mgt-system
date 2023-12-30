@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./sessionYear.module.css";
-import Search from "@/app/ui/dashboard/serach/search";
+import Search from "../../ui/dashboard/serach/search";
 import Link from "next/link";
-import Pagination from "@/app/ui/dashboard/pagination/pagination";
+import Pagination from "../../ui/dashboard/pagination/pagination";
 
 const SessionYearPage = () => {
   return (

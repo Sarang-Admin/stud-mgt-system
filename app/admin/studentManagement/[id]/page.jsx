@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../studentProfile.module.css";
 import Image from "next/image";
-import { fetchStudent } from "@/app/lib/data";
-import { updateStudent } from "@/app/lib/studentActions";
+import { fetchStudent } from "../../../lib/data";
+import { updateStudent } from "../../../lib/studentActions";
 import Link from "next/link";
 
 const StudentProfilePage = async ({ params }) => {
