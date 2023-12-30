@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "@/app/ui/dashboard/students/student.module.css";
-import Search from "@/app/ui/dashboard/serach/search";
+import styles from "../../ui/dashboard/students/student.module.css";
+import Search from "../../ui/dashboard/serach/search";
 import Link from "next/link";
 import Image from "next/image";
-import Pagination from "@/app/ui/dashboard/pagination/pagination";
-import { fetchStudents } from "@/app/lib/data";
-import { deleteStudent } from "@/app/lib/studentActions";
+import Pagination from "../../ui/dashboard/pagination/pagination";
+import { fetchStudents } from "../../lib/data";
+import { deleteStudent } from "../../lib/studentActions";
 
 const StudentManagement = async ({ searchParams }) => {
   const q = searchParams?.q || "";
